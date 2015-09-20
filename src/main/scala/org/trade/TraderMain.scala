@@ -25,7 +25,7 @@ object TraderMain {
     var bot:PircBotX = null
     var debug = false
     var run = false
-    var ircChannel = "#tradewatch"
+    var ircChannel = "#teemo"
 
     def main(args: Array[String]) {
         // attach to IRC if irc param is specified
