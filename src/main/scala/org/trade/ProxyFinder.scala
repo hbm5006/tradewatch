@@ -10,7 +10,7 @@ import scala.util.Random
 
 /**
  *
- * @author hbm50006
+ * @author hbm5006
  */
 case class Proxy(ip:String, port:Int)
 object ProxyFinder {
@@ -90,7 +90,7 @@ object ProxyFinder {
 
     def createRequestObject: Req = {
         val fields = Map("name" -> "Perandus Signet Paua Ring", "buyout_currency" -> "chaos", "buyout" -> "30")
-        val params = List("league" -> "Warbands", "online" -> "x", "capquality" -> "x") ++ fields
+        val params = List("league" -> "Breach", "online" -> "x", "capquality" -> "x") ++ fields
         val req = url("http://poe.trade/search") <<? params
         req
     }
