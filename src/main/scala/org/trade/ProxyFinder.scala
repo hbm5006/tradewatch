@@ -20,7 +20,7 @@ object ProxyFinder {
         builder.setFollowRedirects(true).setRequestTimeoutInMs(5000).setConnectionTimeoutInMs(5000)
     }
 
-    var minimumProxies = 15
+    var minimumProxies = 0
     var maximumProxies = minimumProxies + 30
     var proxyList: List[Proxy] = List[Proxy]()
 
