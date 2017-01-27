@@ -33,8 +33,8 @@ object TraderMain {
             bot = new PircBotX(new Configuration.Builder()
                 .setName("tradewatch")
                 .setNickservPassword(args(args.indexOf("--irc") + 1))
-                .setServerHostname("irc.broke-it.com")
-                .setServerPort(6660)
+                .setServerHostname("irc.rizon.net")
+                .setServerPort(7000)
                 .addListener(new TradeIRCListener)
                 .buildConfiguration())
             new Thread(new Runnable { def run() { bot.startBot() }}).start()
@@ -45,10 +45,10 @@ object TraderMain {
         tradeList = extractTradesFromFile("searches.json")
 
         // start up the proxyfinder. this populates a proxy list.
-        ProxyFinder.minimumProxies = (tradeList.length/2) + 1
-        ProxyFinder.maximumProxies = ProxyFinder.minimumProxies + 30
-        Logger.log("Configuring ProxyFinder with min: " + ProxyFinder.minimumProxies + " max: " + ProxyFinder.maximumProxies)
-        ProxyFinder.schedule
+        // ProxyFinder.minimumProxies = (tradeList.length/2) + 1
+        // ProxyFinder.maximumProxies = ProxyFinder.minimumProxies + 30
+        // Logger.log("Configuring ProxyFinder with min: " + ProxyFinder.minimumProxies + " max: " + ProxyFinder.maximumProxies)
+        // ProxyFinder.schedule
 
         ActorSystem("tradermain").scheduler.schedule(0 seconds, 30 seconds)({
             if(run && ProxyFinder.proxyList.length >= ProxyFinder.minimumProxies) {
