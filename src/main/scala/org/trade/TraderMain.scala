@@ -25,7 +25,7 @@ object TraderMain {
     var bot:PircBotX = null
     var debug = false
     var run = false
-    var ircChannel = "#teemo"
+    var ircChannel = "#mirrors4days"
 
     def main(args: Array[String]) {
         // attach to IRC if irc param is specified
@@ -33,8 +33,8 @@ object TraderMain {
             bot = new PircBotX(new Configuration.Builder()
                 .setName("tradewatch")
                 .setNickservPassword(args(args.indexOf("--irc") + 1))
-                .setServerHostname("irc.rizon.net")
-                .setServerPort(7000)
+                .setServerHostname("irc.gamesurge.net")
+                .setServerPort(6666)
                 .addListener(new TradeIRCListener)
                 .buildConfiguration())
             new Thread(new Runnable { def run() { bot.startBot() }}).start()
